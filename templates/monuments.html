@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Monument Database — Ziyarat-e-Delhi</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/opendyslexic" rel="stylesheet">
+
+<style>
+
+/* ── ALL FONTS → Times New Roman ── */
+*, *::before, *::after {
+  font-family: "Times New Roman", Times, serif !important;
+}
+.font-devanagari {
+  font-family: 'Noto Sans Devanagari', "Times New Roman", serif !important;
+}
+
+.custom-scroll::-webkit-scrollbar       { width:4px; }
+.custom-scroll::-webkit-scrollbar-track { background:transparent; }
+.custom-scroll::-webkit-scrollbar-thumb { background:#d1c9be; border-radius:2px; }
+
+.tab-btn { border-bottom:2px solid transparent; }
+.tab-btn.tab-active { border-bottom-color:#92600a; color:#92600a !important; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-up { animation:fadeUp 0.3s ease forwards; }
+
+.dyslexia-font,.dyslexia-font * { font-family:"OpenDyslexic",Arial,sans-serif !important; }
+.large-spacing,.large-spacing * { line-height:2 !important; letter-spacing:0.06em; }
+.blue-light    { filter:sepia(0.3) brightness(0.88); }
+.high-contrast,
+.high-contrast body,
+.high-contrast header,
+.high-contrast aside,
+.high-contrast main,
+.high-contrast #content,
+.high-contrast #mlist,
+.high-contrast #detail,
+.high-contrast #empty           { background: #000 !important; color: #ff0 !important; border-color: #ff0 !important; }
+.high-contrast *                { color: #ff0 !important; background: #000 !important; border-color: #333 !important; }
+.high-contrast a                { color: #0ff !important; }
+.high-contrast input            { background: #111 !important; color: #ff0 !important; border-color: #ff0 !important; }
+.high-contrast .section-text    { color: #ff0 !important; }
+.high-contrast .tab-btn         { color: #aaa !important; background: #000 !important; }
+.high-contrast .tab-btn.tab-active { color: #ff0 !important; border-color: #ff0 !important; }
+
+.hero-grad { background:linear-gradient(to top,#fff 0%,rgba(255,255,255,0.4) 55%,transparent 100%); }
+
+.section-text        { font-size:1.05rem; line-height:1.95; font-weight:400; color:#1c1917; }
+.section-text em     { color:#92600a; font-style:italic; }
+.section-text strong { color:#000; font-weight:700; }
+
+.apbtn  { display:block;width:100%;text-align:left;font-size:.875rem;padding:.5rem .75rem;border-radius:.25rem;color:#44403c;transition:all .15s;background:transparent;border:none;cursor:pointer; }
+.apbtn:hover { background:#f5f0eb;color:#1c1917; }
+.navlink { display:block;font-size:.875rem;padding:.5rem .75rem;border-radius:.25rem;color:#44403c;text-decoration:none;transition:all .15s; }
+.navlink:hover { background:#f5f0eb;color:#1c1917; }
+
+/* ── DARK MODE ── */
+body.dark-mode                        { background:#0c0a09 !important; color:#e8e0d4 !important; }
+body.dark-mode header                 { background:#1c1917 !important; border-color:#44403c !important; }
+body.dark-mode aside                  { background:#1c1917 !important; border-color:#44403c !important; }
+body.dark-mode main, body.dark-mode #content { background:#0c0a09 !important; }
+body.dark-mode input                  { background:#292524 !important; color:#e8e0d4 !important; border-color:#57534e !important; }
+body.dark-mode .mi:hover              { background:#292524 !important; border-color:#57534e !important; }
+body.dark-mode .section-text          { color:#d6d0c8 !important; }
+body.dark-mode #empty p               { color:#57534e !important; }
+body.dark-mode #tr                    { border-color:#44403c !important; }
+body.dark-mode .tab-btn               { color:#78716c !important; }
+body.dark-mode .tab-btn.tab-active    { color:#d4a754 !important; border-color:#d4a754 !important; }
+body.dark-mode #dn                    { color:#fff !important; }
+body.dark-mode #ds                    { color:#d4a754 !important; }
+body.dark-mode #hc                    { background:rgba(0,0,0,0.5) !important; color:#e8e0d4 !important; }
+body.dark-mode .hero-grad             { background:linear-gradient(to top,#0c0a09 0%,rgba(12,10,9,0.4) 55%,transparent 100%) !important; }
+body.dark-mode button.bg-stone-100    { background:#292524 !important; border-color:#57534e !important; color:#a8a29e !important; }
+body.dark-mode #ap                    { background:#1c1917 !important; border-color:#44403c !important; }
+body.dark-mode .apbtn                 { color:#c8bfb0 !important; }
+body.dark-mode .apbtn:hover           { background:#292524 !important; color:#f5f0eb !important; }
+body.dark-mode #navSidebar            { background:#1c1917 !important; border-color:#44403c !important; }
+body.dark-mode .navlink               { color:#c8bfb0 !important; }
+body.dark-mode .navlink:hover         { background:#292524 !important; }
+#navSidebar {
+  position: fixed;
+  top: 0; right: -280px;
+  width: 220px;
+  height: 100%;
+  background: #fff;
+  border-left: 1px solid #e7e0d8;
+  z-index: 200;
+  transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  flex-direction: column;
+}
+#navSidebar.open { right: 0; }
+#navOverlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 199;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+#navOverlay.open { opacity: 1; pointer-events: all; }
+</style>
+</head>
+
+<body class="bg-white text-stone-900 min-h-screen">
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header class="bg-white border-b border-stone-200 px-5 h-16 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+
+  <div class="flex items-center gap-4">
+    <span class="text-base font-semibold tracking-widest text-amber-700 uppercase hidden md:block">Monument Database</span>
+  </div>
+
+  <div class="flex items-center gap-2">
+
+    <!-- Language toggle -->
+    <div class="flex bg-stone-100 border border-stone-300 rounded overflow-hidden">
+      <button id="btnEN" onclick="setLang('en')"
+        class="px-3 py-1.5 text-xs tracking-wide bg-amber-600 text-white font-bold transition">EN</button>
+      <button id="btnHI" onclick="setLang('hi')"
+        class="px-3 py-1.5 text-xs tracking-wide text-stone-500 hover:text-stone-800 transition">हिं</button>
+    </div>
+
+    <!-- TTS -->
+    <button onclick="startReading()"
+      class="bg-stone-100 border border-stone-300 hover:border-amber-500 text-stone-600 hover:text-amber-700 px-3 py-1.5 rounded text-sm transition">🔊</button>
+    <button id="pauseBtn" onclick="togglePause()"
+      class="bg-stone-100 border border-stone-300 hover:border-amber-500 text-stone-600 hover:text-amber-700 px-3 py-1.5 rounded text-sm transition">⏸</button>
+    <button onclick="stopReading()"
+      class="bg-stone-100 border border-stone-300 hover:border-red-400 text-stone-600 hover:text-red-500 px-3 py-1.5 rounded text-sm transition">⏹</button>
+
+    <!-- Dark mode -->
+    <button id="darkBtn" onclick="toggleDark()"
+      class="bg-stone-100 border border-stone-300 hover:border-amber-500 text-stone-600 hover:text-amber-700 px-3 py-1.5 rounded text-sm transition">🌙</button>
+
+    <!-- Accessibility -->
+    <div class="relative">
+      <button onclick="toggleAP()"
+        class="bg-stone-100 border border-stone-300 hover:border-amber-500 text-stone-600 hover:text-amber-700 px-3 py-1.5 rounded text-sm transition">♿</button>
+      <div id="ap"
+        class="hidden absolute right-0 top-11 w-44 bg-white border border-stone-200 rounded-lg shadow-xl p-2 z-50">
+        <p class="text-xs tracking-widest text-stone-400 px-3 py-1 uppercase">Accessibility</p>
+        <button onclick="cz(10)"  class="apbtn">A+ Larger Text</button>
+        <button onclick="cz(-10)" class="apbtn">A− Smaller Text</button>
+        <button onclick="document.body.classList.toggle('dyslexia-font')" class="apbtn">Dyslexia Font</button>
+        <button onclick="document.body.classList.toggle('large-spacing')" class="apbtn">Line Spacing</button>
+        <button onclick="document.body.classList.toggle('blue-light')"   class="apbtn">Blue Light Filter</button>
+        <button onclick="document.body.classList.toggle('high-contrast')" class="apbtn">High Contrast</button>
+        <hr class="border-stone-200 my-1.5">
+        <button onclick="ra()" class="block w-full text-left text-sm px-3 py-2 rounded hover:bg-red-50 text-red-500 transition">Reset All</button>
+      </div>
+    </div>
+
+    <!-- Nav hamburger -->
+    <button onclick="toggleNav()"
+      class="bg-stone-100 border border-stone-300 hover:border-amber-500 text-stone-600 hover:text-amber-700 px-3 py-1.5 rounded text-sm transition">☰</button>
+
+  </div>
+</header>
+
+<!-- NAV OVERLAY -->
+<div id="navOverlay" onclick="toggleNav()"></div>
+
+<!-- NAV SIDEBAR -->
+<div id="navSidebar">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-stone-200">
+    <span class="text-xs tracking-widest text-amber-700 uppercase">Menu</span>
+    <button onclick="toggleNav()" class="text-stone-400 hover:text-stone-800 text-xl leading-none transition">✕</button>
+  </div>
+  <nav class="flex-1 p-3 flex flex-col gap-1 mt-2">
+    <a href="/"     class="navlink">Home</a>
+    <a href="/map"  class="navlink">Map</a>
+    <a href="/chat" class="navlink">AI Assistant</a>
+  </nav>
+  <div class="px-5 pb-6">
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(146,96,10,0.3),transparent);"></div>
+    <p class="text-center text-xs text-stone-400 mt-3 tracking-widest">Ziyarat-e-Delhi
+
+    </p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     MAIN LAYOUT
+══════════════════════════════════════ -->
+<div class="flex" style="height:calc(100vh - 64px);">
+
+  <!-- SIDEBAR (monument list) -->
+  <aside class="w-72 bg-stone-50 border-r border-stone-200 flex flex-col overflow-hidden flex-shrink-0">
+
+    <div class="px-4 pt-5 pb-3 border-b border-stone-200">
+      <p class="text-xs tracking-widest text-amber-700 uppercase mb-3">List</p>
+      <input id="searchInput"
+        type="text" placeholder="Search monuments…" oninput="fl()"
+        class="w-full bg-white border border-stone-300 focus:border-amber-500 text-stone-800 placeholder-stone-400 px-3 py-2 rounded text-sm outline-none transition">
+    </div>
+
+    <div id="mlist" class="flex-1 overflow-y-auto custom-scroll p-2">
+      {% for monument in monuments %}
+      <div class="mi relative px-4 py-3 rounded cursor-pointer border border-transparent hover:bg-white hover:border-stone-200 hover:shadow-sm mb-1 transition group"
+           id="mi-{{ monument.id }}" onclick="lm({{ monument.id }})">
+        <div class="mi-name text-sm font-semibold text-stone-700 group-hover:text-amber-700 transition leading-snug">{{ monument.name }}</div>
+        <div class="text-xs text-stone-400 mt-0.5">Click to explore</div>
+        <div class="mi-dot absolute right-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-amber-600 opacity-0 transition-opacity"></div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </aside>
+
+
+  <!-- CONTENT PANEL -->
+  <main id="content" class="flex-1 overflow-y-auto custom-scroll bg-white">
+
+    <!-- Empty state -->
+    <div id="empty" class="flex flex-col items-center justify-center h-full gap-4 px-8 text-center">
+      <div class="text-7xl opacity-20">🏛</div>
+      <p class="text-xs tracking-widest uppercase text-stone-400">Select a Monument</p>
+      <p class="text-base max-w-xs leading-relaxed text-stone-400">Choose from the list to explore history, translations and inscriptions.</p>
+    </div>
+
+    <!-- Detail -->
+    <div id="detail" class="hidden">
+
+      <!-- Hero photo -->
+      <div id="hw" class="relative h-72 bg-stone-100 overflow-hidden">
+        <img id="hi" src="" alt="Monument photo" class="w-full h-full object-cover">
+        <div class="hero-grad absolute inset-0 pointer-events-none"></div>
+        <button onclick="gp()" class="hnav hidden absolute left-3 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-amber-700 text-white w-9 h-9 rounded-full items-center justify-center transition text-lg leading-none">&#8592;</button>
+        <button onclick="gn()" class="hnav hidden absolute right-3 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 hover:bg-amber-700 text-white w-9 h-9 rounded-full items-center justify-center transition text-lg leading-none">&#8594;</button>
+        <div id="hc" class="absolute bottom-3 right-4 text-xs text-stone-700 bg-white bg-opacity-70 px-2 py-0.5 rounded"></div>
+        <div class="absolute bottom-6 left-8 right-12">
+          <div id="dn" class="text-2xl font-bold text-stone-900 leading-tight drop-shadow-sm" style="letter-spacing:0.06em;"></div>
+          <div id="ds" class="font-devanagari text-base text-amber-700 mt-1 hidden"></div>
+        </div>
+      </div>
+
+      <!-- Document body -->
+      <div class="px-8 py-6 max-w-4xl">
+
+        <div class="text-center text-amber-600 text-xs tracking-widest my-5 opacity-40">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+        <!-- Tabs -->
+        <div id="tr" class="flex border-b border-stone-200 mb-7 overflow-x-auto gap-0" style="scrollbar-width:none;"></div>
+
+        <!-- Content -->
+        <div id="tc" class="pb-20"></div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+
+<script>
+
+const SECS = [
+  { key:'history',     en:'History',            hi:'इतिहास'           },
+  { key:'visitor',     en:'Visitor Info',        hi:'आगंतुक जानकारी'  },
+  { key:'experience',  en:'Experience',          hi:'व्यक्तिगत अनुभव' },
+  { key:'nearby',      en:'Nearby Places',       hi:'आस-पास'           },
+  { key:'condition',   en:'Present Condition',   hi:'वर्तमान स्थिति'  },
+  { key:'translation', en:'Translations',        hi:'अनुवाद'           },
+  { key:'secondary',   en:'Secondary Readings',  hi:'द्वितीयक पाठन'   },
+];
+
+let lang = 'en', imgs = [], idx = 0, data = null, zoom = 100;
+
+function setLang(l) {
+  lang = l;
+  const enBtn = document.getElementById('btnEN');
+  const hiBtn = document.getElementById('btnHI');
+  const activeC   = 'bg-amber-600 text-white font-bold';
+  const inactiveC = 'text-stone-500 hover:text-stone-800';
+  enBtn.className = `px-3 py-1.5 text-xs tracking-wide transition ${l==='en' ? activeC : inactiveC}`;
+  hiBtn.className = `px-3 py-1.5 text-xs tracking-wide transition ${l==='hi' ? activeC : inactiveC}`;
+  if (data) rd(data);
+}
+
+function gname(d) { return lang === 'hi' ? (d.hi_name || d.name) : d.name; }
+function gsub(d)  { return lang === 'hi' ? d.name : (d.hi_name || ''); }
+function gf(d, k) {
+  if (lang === 'hi') return d['hi_' + k] || d[k] || '';
+  return d[k] || '';
+}
+
+function lm(id) {
+  stopReading();
+  document.querySelectorAll('.mi').forEach(e => {
+    e.classList.remove('bg-white','border-stone-200','shadow-sm');
+    e.querySelector('.mi-dot').style.opacity = '0';
+    e.querySelector('.mi-name').classList.remove('text-amber-700');
+  });
+  const el = document.getElementById('mi-' + id);
+  if (el) {
+    el.classList.add('bg-white','border-stone-200','shadow-sm');
+    el.querySelector('.mi-dot').style.opacity = '1';
+    el.querySelector('.mi-name').classList.add('text-amber-700');
+  }
+  fetch('/api/monument/' + id)
+    .then(r => r.json())
+    .then(d => { data = d; rd(d); });
+}
+
+function rd(d) {
+  imgs = Array.isArray(d.images) && d.images.length ? d.images : [];
+  idx  = 0;
+  uhi();
+
+  document.getElementById('dn').textContent = gname(d);
+  const dsEl = document.getElementById('ds');
+  const sub  = gsub(d);
+  dsEl.textContent   = sub;
+  dsEl.style.display = sub ? 'block' : 'none';
+
+  const tr = document.getElementById('tr');
+  const tc = document.getElementById('tc');
+  tr.innerHTML = tc.innerHTML = '';
+
+  SECS.forEach((s, i) => {
+    const lbl  = lang === 'hi' ? s.hi : s.en;
+    const cnt  = gf(d, s.key);
+    const isHi = lang === 'hi';
+
+    const b = document.createElement('button');
+    b.className = `tab-btn text-xs tracking-widest uppercase px-4 py-2.5 whitespace-nowrap text-stone-400 hover:text-stone-700 transition ${i === 0 ? 'tab-active' : ''}`;
+    b.textContent = lbl;
+    b.onclick = () => st(s.key);
+    tr.appendChild(b);
+
+    const dv = document.createElement('div');
+    dv.className = 'sc hidden';
+    dv.id = 'sc-' + s.key;
+
+    if (cnt) {
+      dv.innerHTML = `<div class="section-text ${isHi ? 'font-devanagari' : ''}">${cnt}</div>`;
+    } else {
+      const msg = isHi ? 'जानकारी उपलब्ध नहीं है।' : 'No information available.';
+      dv.innerHTML = `<p class="text-stone-400 italic text-base">${msg}</p>`;
+    }
+    tc.appendChild(dv);
+  });
+
+  const firstSc = tc.querySelector('.sc');
+  if (firstSc) { firstSc.classList.remove('hidden'); firstSc.classList.add('fade-up'); }
+
+  document.getElementById('empty').classList.add('hidden');
+  document.getElementById('detail').classList.remove('hidden');
+  document.getElementById('content').scrollTop = 0;
+}
+
+function st(key) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    const on = SECS[i].key === key;
+    b.classList.toggle('tab-active', on);
+    b.classList.toggle('text-stone-400', !on);
+    b.classList.toggle('text-amber-700', on);
+  });
+  document.querySelectorAll('.sc').forEach(dv => {
+    const show = dv.id === 'sc-' + key;
+    dv.classList.toggle('hidden', !show);
+    if (show) { dv.classList.remove('fade-up'); void dv.offsetWidth; dv.classList.add('fade-up'); }
+  });
+}
+
+function uhi() {
+  const w = document.getElementById('hw');
+  if (!imgs.length) { w.style.display = 'none'; return; }
+  w.style.display = '';
+  document.getElementById('hi').src = imgs[idx];
+  document.getElementById('hc').textContent = imgs.length > 1 ? `${idx+1} / ${imgs.length}` : '';
+  document.querySelectorAll('.hnav').forEach(b => {
+    b.classList.toggle('hidden', imgs.length <= 1);
+    b.classList.toggle('flex',   imgs.length > 1);
+  });
+}
+function gn() { idx = (idx + 1) % imgs.length; uhi(); }
+function gp() { idx = (idx - 1 + imgs.length) % imgs.length; uhi(); }
+
+function fl() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.mi').forEach(el => {
+    el.style.display = el.querySelector('.mi-name').textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+function startReading() {
+  stopReading();
+  if (!data) return;
+  const txt = gname(data) + '. ' + SECS.map(s => {
+    const c = gf(data, s.key);
+    return c ? (lang==='hi' ? s.hi : s.en) + '. ' + c.replace(/<[^>]+>/g,' ') : '';
+  }).filter(Boolean).join('. ');
+  const u   = new SpeechSynthesisUtterance(txt);
+  u.rate    = 0.85;
+  u.lang    = lang === 'hi' ? 'hi-IN' : 'en-US';
+  const vox = speechSynthesis.getVoices();
+  u.voice   = lang === 'hi'
+    ? (vox.find(v => v.lang.startsWith('hi')) || vox[0])
+    : (vox.find(v => v.lang.startsWith('en')) || vox[0]);
+  speechSynthesis.speak(u);
+}
+function stopReading() {
+  speechSynthesis.cancel();
+  const btn = document.getElementById('pauseBtn');
+  if (btn) { btn.textContent = '⏸'; btn.classList.remove('text-green-600'); }
+}
+
+function togglePause() {
+  const btn = document.getElementById('pauseBtn');
+  if (speechSynthesis.speaking && !speechSynthesis.paused) {
+    speechSynthesis.pause();
+    btn.textContent = '▶';
+    btn.classList.add('text-green-600');
+  } else if (speechSynthesis.paused) {
+    speechSynthesis.resume();
+    btn.textContent = '⏸';
+    btn.classList.remove('text-green-600');
+  }
+}
+
+let darkMode = localStorage.getItem('monuments-dark') === 'true';
+function applyDark() {
+  document.body.classList.toggle('dark-mode', darkMode);
+  document.getElementById('darkBtn').textContent = darkMode ? '☀️' : '🌙';
+}
+function toggleDark() {
+  darkMode = !darkMode;
+  localStorage.setItem('monuments-dark', darkMode);
+  applyDark();
+}
+applyDark();
+
+window.addEventListener('beforeunload', stopReading);
+
+function cz(s)  { zoom = Math.min(200, Math.max(70, zoom+s)); document.documentElement.style.fontSize = zoom+'%'; }
+function ra()   { zoom=100; document.documentElement.style.fontSize='100%'; document.body.classList.remove('dyslexia-font','large-spacing','blue-light','high-contrast'); }
+function toggleAP()  { document.getElementById('ap').classList.toggle('hidden'); }
+function toggleNav() {
+  document.getElementById('navSidebar').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('#ap') && !e.target.matches('[onclick="toggleAP()"]'))
+    document.getElementById('ap').classList.add('hidden');
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const first = document.querySelector('.mi');
+  if (first) lm(parseInt(first.id.replace('mi-','')));
+});
+</script>
+</body>
+</html>

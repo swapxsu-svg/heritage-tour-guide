@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Diwan-i-Naksh</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+/* ── BASE ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body, html {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #0e0b08;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiI+PHJlY3Qgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiBmaWxsPSIjMGUwYjA4Ii8+PHBhdGggZD0iTTAsMjggUTE0LDIyIDI4LDI4IFE0MiwzNCA1NiwyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDYwLDQ1LDMwLDAuMzUpIiBzdHJva2Utd2lkdGg9IjAuOCIvPjxwYXRoIGQ9Ik0yOCwwIFEzNCwxNCAyOCwyOCBRMjIsNDIgMjgsNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg2MCw0NSwzMCwwLjM1KSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz48cGF0aCBkPSJNMCwyOCBRMTQsMTQgMjgsMjggUTQyLDQyIDU2LDI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjEyLDE2Nyw4NCwwLjQpIiBzdHJva2Utd2lkdGg9IjAuOSIvPjxwYXRoIGQ9Ik0yOCwwIFE0MiwxNCAyOCwyOCBRMTQsNDIgMjgsNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMTIsMTY3LDg0LDAuNCkiIHN0cm9rZS13aWR0aD0iMC45Ii8+PHBhdGggZD0iTTAsMCBRNyw3IDAsMTQiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMTIsMTY3LDg0LDAuMykiIHN0cm9rZS13aWR0aD0iMC42Ii8+PHBhdGggZD0iTTU2LDAgUTQ5LDcgNTYsMTQiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMTIsMTY3LDg0LDAuMykiIHN0cm9rZS13aWR0aD0iMC42Ii8+PHBhdGggZD0iTTAsNTYgUTcsNDkgMCw0MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDIxMiwxNjcsODQsMC4zKSIgc3Ryb2tlLXdpZHRoPSIwLjYiLz48cGF0aCBkPSJNNTYsNTYgUTQ5LDQ5IDU2LDQyIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjEyLDE2Nyw4NCwwLjMpIiBzdHJva2Utd2lkdGg9IjAuNiIvPjxwYXRoIGQ9Ik0yNCwyNCBRMjAsMTggMTYsMjEgUTIwLDI1IDI0LDI0WiIgZmlsbD0iIzFhM2QxOCIvPjxwYXRoIGQ9Ik0zMiwyNCBRMzYsMTggNDAsMjEgUTM2LDI1IDMyLDI0WiIgZmlsbD0iIzFhM2QxOCIvPjxwYXRoIGQ9Ik0yNCwzMiBRMjAsMzggMTYsMzUgUTIwLDMxIDI0LDMyWiIgZmlsbD0iIzFhM2QxOCIvPjxwYXRoIGQ9Ik0zMiwzMiBRMzYsMzggNDAsMzUgUTM2LDMxIDMyLDMyWiIgZmlsbD0iIzFhM2QxOCIvPjxwYXRoIGQ9Ik0yNSwyMiBRMjgsMTQgMzEsMjIgUTI5LDI2IDI4LDI1IFEyNywyNiAyNSwyMloiIGZpbGw9IiM3YTFhMTAiLz48cGF0aCBkPSJNMjYuNSwyMiBRMjgsMTYgMjkuNSwyMiIgZmlsbD0iIzRhMGEwNiIvPjxwYXRoIGQ9Ik0yNiwyNSBRMjQsMzAgMjgsMzEgUTMyLDMwIDMwLDI1WiIgZmlsbD0iIzFhM2QxOCIvPjxjaXJjbGUgY3g9IjI4IiBjeT0iMjgiIHI9IjEuOCIgZmlsbD0iIzBlMGIwOCIgc3Ryb2tlPSJyZ2JhKDIxMiwxNjcsODQsMC41KSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMiIgZmlsbD0iIzBlMGIwOCIgc3Ryb2tlPSJyZ2JhKDIxMiwxNjcsODQsMC4zNSkiIHN0cm9rZS13aWR0aD0iMC41Ii8+PGNpcmNsZSBjeD0iNTYiIGN5PSIwIiByPSIyIiBmaWxsPSIjMGUwYjA4IiBzdHJva2U9InJnYmEoMjEyLDE2Nyw4NCwwLjM1KSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48Y2lyY2xlIGN4PSIwIiBjeT0iNTYiIHI9IjIiIGZpbGw9IiMwZTBiMDgiIHN0cm9rZT0icmdiYSgyMTIsMTY3LDg0LDAuMzUpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjIiIGZpbGw9IiMwZTBiMDgiIHN0cm9rZT0icmdiYSgyMTIsMTY3LDg0LDAuMzUpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjwvc3ZnPgo=");
+  background-repeat: repeat;
+  background-size: 56px 56px;
+  color: #e8e0d4;
+}
+
+/* ════════════════════════════════════════════
+   PISHTAQ ENTRANCE ANIMATION
+════════════════════════════════════════════ */
+
+#pishtaq-intro {
+  position: fixed; inset: 0; z-index: 9999; background: #f0ece4;
+  display: none; align-items: center; justify-content: center;
+  overflow: hidden; pointer-events: all;
+}
+.intro-bg { position: absolute; inset: 0; background: #f0ece4; }
+
+@keyframes bgGreyscale { from { filter: grayscale(0) brightness(1); } to { filter: grayscale(1) brightness(0.4); } }
+@keyframes bgFade { from { opacity: 0; } to { opacity: 1; } }
+
+#pishtaq-svg { position: relative; z-index: 2; width: min(520px, 90vw); }
+
+.p-ground { opacity: 0; }
+.p-jamb-l { transform-origin: bottom center; transform: scaleY(0); opacity: 0; }
+.p-jamb-r { transform-origin: bottom center; transform: scaleY(0); opacity: 0; }
+.p-frame-l { transform-origin: bottom; transform: scaleY(0); opacity: 0; }
+.p-frame-r { transform-origin: bottom; transform: scaleY(0); opacity: 0; }
+.p-frame-top { transform-origin: center; transform: scaleX(0); opacity: 0; }
+.p-face { opacity: 0; }
+.p-inner-border { opacity: 0; }
+.p-band { opacity: 0; }
+.p-arch-fill { transform-origin: bottom; transform: scaleY(0); opacity: 0; }
+.p-arch-border { opacity: 0; stroke-dasharray: 600; stroke-dashoffset: 600; }
+.p-arch-inner  { opacity: 0; stroke-dasharray: 500; stroke-dashoffset: 500; }
+.p-muq1 { opacity: 0; }
+.p-muq2 { opacity: 0; }
+.p-rose { opacity: 0; transform: scale(0); transform-box: fill-box; transform-origin: center; }
+.p-keystone { opacity: 0; transform: scale(0); transform-box: fill-box; transform-origin: center; }
+.p-title    { opacity: 0; }
+.p-subtitle { opacity: 0; }
+
+@keyframes drawIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes growUp { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
+@keyframes growAcross { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
+@keyframes drawStroke { from { stroke-dashoffset: 600; opacity: 0; } to { stroke-dashoffset: 0; opacity: 1; } }
+@keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+@keyframes archExpand { 0% { transform: scale(1); } 100% { transform: scale(1.18); } }
+@keyframes svgDim { from { filter: grayscale(0) brightness(1); } to { filter: grayscale(1) brightness(0.35); } }
+#pishtaq-svg.expanding {
+  animation: archExpand 0.8s cubic-bezier(0.4,0,0.2,1) forwards, svgDim 1.2s ease forwards;
+  transform-origin: center 55%;
+}
+
+#arch-video-wrap { position: fixed; z-index: 10; opacity: 0; pointer-events: none; overflow: hidden; border-radius: 50% 50% 0 0 / 30% 30% 0 0; }
+#arch-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+@keyframes videoFadeIn { from { opacity: 0; } to { opacity: 1; } }
+#arch-video-wrap.show { animation: videoFadeIn 0.5s ease forwards; pointer-events: all; }
+#pishtaq-intro.done { animation: introDone 0.6s ease forwards; pointer-events: none; }
+@keyframes introDone { from { opacity: 1; } to { opacity: 0; } }
+
+/* ── HERO ── */
+.hero { height: 100vh; position: relative; overflow: hidden; }
+.slide { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out; }
+.active { opacity: 1; }
+.overlay { position: absolute; width: 100%; height: 100%; background: linear-gradient(to bottom,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.35) 50%,rgba(12,10,9,0.82) 100%); z-index: 1; }
+.content { position: absolute; z-index: 2; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 24px; }
+
+/* ── HEADER ── */
+.header { position: fixed; top: 0; left: 0; width: 100%; height: 90px; background: rgba(10,8,6,0.97); display: flex; align-items: stretch; padding: 0; z-index: 50; border-bottom: 1px solid rgba(180,130,50,0.25); backdrop-filter: blur(6px); overflow: hidden; }
+.header-left { display: flex; align-items: center; flex-shrink: 0; padding-left: 12px; height: 100%; }
+.pishtaq-fill { flex: 1; height: 90px; overflow: hidden; display: flex; align-items: stretch; }
+
+/* ── SIDEBAR ── */
+.sidebar { position: fixed; top: 90px; left: -260px; width: 260px; height: 100%; background: rgba(18,14,10,0.98); color: white; padding-top: 24px; transition: 0.3s cubic-bezier(0.4,0,0.2,1); z-index: 40; border-right: 1px solid rgba(180,130,50,0.15); }
+.sidebar a { display: block; padding: 14px 28px; border-bottom: 1px solid rgba(255,255,255,0.06); font-family: "Times New Roman", Times, serif; font-size: 14px; letter-spacing: 0.08em; color: #b0a090; text-decoration: none; text-transform: uppercase; transition: all 0.2s; }
+.sidebar a:hover { background: rgba(180,130,50,0.08); color: #d4a754; padding-left: 36px; }
+
+/* ── HAMBURGER ── */
+.hamburger { cursor: pointer; color: #a89070; font-size: 26px; transition: color 0.2s; padding: 0 12px; flex-shrink: 0; }
+.hamburger:hover { color: #d4a754; }
+
+/* ── GOLD DIVIDER ── */
+.gold-rule { width: 60px; height: 1px; background: linear-gradient(to right,transparent,#d4a754,transparent); margin: 16px auto; }
+
+/* ── TIMELINE DOT ── */
+.timeline-dot { width: 14px; height: 14px; background: #d4a754; border-radius: 50%; border: 3px solid #0c0a09; box-shadow: 0 0 0 1px rgba(212,167,84,0.4); }
+
+/* ── CARDS ── */
+.card { background: linear-gradient(135deg,#161210 0%,#1c1612 100%); border: 1px solid rgba(180,130,50,0.2); border-radius: 4px; transition: border-color 0.3s, transform 0.3s; }
+.card:hover { border-color: rgba(212,167,84,0.45); transform: translateY(-2px); }
+
+/* ── ORNAMENT ── */
+.ornament { color: rgba(212,167,84,0.35); letter-spacing: 0.5em; font-size: 13px; }
+
+/* ── FOOTER ── */
+footer { background: #070504; border-top: 1px solid rgba(180,130,50,0.18); padding: 40px 24px 28px; text-align: center; }
+
+/* ── FADE IN ON SCROLL ── */
+@keyframes fadeInUp { from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);} }
+.fade-in { animation: fadeInUp 0.7s ease both; }
+
+</style>
+</head>
+
+<body>
+
+<!-- ENTER SCREEN -->
+<div id="enter-screen" style="position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;" onclick="startExperience()">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="bk-pd" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+        <rect width="56" height="56" fill="#0e0b08"/>
+        <path d="M0,28 Q14,22 28,28 Q42,34 56,28" fill="none" stroke="rgba(60,45,30,0.4)" stroke-width="0.8"/>
+        <path d="M28,0 Q34,14 28,28 Q22,42 28,56" fill="none" stroke="rgba(60,45,30,0.4)" stroke-width="0.8"/>
+        <path d="M0,28 Q14,14 28,28 Q42,42 56,28" fill="none" stroke="rgba(212,167,84,0.55)" stroke-width="1"/>
+        <path d="M28,0 Q42,14 28,28 Q14,42 28,56" fill="none" stroke="rgba(212,167,84,0.55)" stroke-width="1"/>
+        <path d="M0,0 Q7,7 0,14" fill="none" stroke="rgba(212,167,84,0.4)" stroke-width="0.7"/>
+        <path d="M56,0 Q49,7 56,14" fill="none" stroke="rgba(212,167,84,0.4)" stroke-width="0.7"/>
+        <path d="M0,56 Q7,49 0,42" fill="none" stroke="rgba(212,167,84,0.4)" stroke-width="0.7"/>
+        <path d="M56,56 Q49,49 56,42" fill="none" stroke="rgba(212,167,84,0.4)" stroke-width="0.7"/>
+        <path d="M24,24 Q20,18 16,21 Q20,25 24,24Z" fill="#1a3d18"/>
+        <path d="M32,24 Q36,18 40,21 Q36,25 32,24Z" fill="#1a3d18"/>
+        <path d="M24,32 Q20,38 16,35 Q20,31 24,32Z" fill="#1a3d18"/>
+        <path d="M32,32 Q36,38 40,35 Q36,31 32,32Z" fill="#1a3d18"/>
+        <path d="M25,22 Q28,14 31,22 Q29,26 28,25 Q27,26 25,22Z" fill="#7a1a10"/>
+        <path d="M26.5,22 Q28,16 29.5,22" fill="#4a0a06" stroke="none"/>
+        <path d="M26,25 Q24,30 28,31 Q32,30 30,25Z" fill="#1a3d18"/>
+        <circle cx="28" cy="28" r="1.8" fill="#0e0b08" stroke="rgba(212,167,84,0.6)" stroke-width="0.5"/>
+        <circle cx="0"  cy="0"  r="2" fill="#0e0b08" stroke="rgba(212,167,84,0.45)" stroke-width="0.5"/>
+        <circle cx="56" cy="0"  r="2" fill="#0e0b08" stroke="rgba(212,167,84,0.45)" stroke-width="0.5"/>
+        <circle cx="0"  cy="56" r="2" fill="#0e0b08" stroke="rgba(212,167,84,0.45)" stroke-width="0.5"/>
+        <circle cx="56" cy="56" r="2" fill="#0e0b08" stroke="rgba(212,167,84,0.45)" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#bk-pd)"/>
+  </svg>
+  <svg style="position:absolute;width:min(420px,80vw);opacity:0.2;" viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="10" width="38" height="410" fill="none" stroke="rgba(212,167,84,0.5)" stroke-width="1.5" rx="2"/>
+    <rect x="280" y="10" width="38" height="410" fill="none" stroke="rgba(212,167,84,0.5)" stroke-width="1.5" rx="2"/>
+    <rect x="2" y="10" width="316" height="36" fill="none" stroke="rgba(212,167,84,0.5)" stroke-width="1.5" rx="2"/>
+    <path d="M68,415 L68,240 C68,140 100,88 160,80 C220,88 252,140 252,240 L252,415" fill="none" stroke="rgba(212,167,84,0.7)" stroke-width="2"/>
+    <path d="M82,415 L82,246 C82,152 108,104 160,97 C212,104 238,152 238,246 L238,415" fill="none" stroke="rgba(212,167,84,0.3)" stroke-width="1"/>
+    <polyline points="96,150 108,136 120,124 132,116 144,110 160,106 176,110 188,116 200,124 212,136 224,150" fill="none" stroke="rgba(212,167,84,0.45)" stroke-width="1.2" stroke-linejoin="round"/>
+    <ellipse cx="160" cy="84" rx="18" ry="12" fill="none" stroke="rgba(212,167,84,0.55)" stroke-width="1.2"/>
+    <circle cx="160" cy="84" r="4" fill="rgba(212,167,84,0.3)"/>
+  </svg>
+  <div style="position:relative;z-index:2;text-align:center;">
+    <p style="font-family:'Times New Roman',serif;font-size:11px;letter-spacing:0.4em;color:rgba(212,167,84,0.55);text-transform:uppercase;margin-bottom:16px;">Cluster Innovation Centre</p>
+    <h1 style="font-family:'Times New Roman',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:400;color:#f0e8d8;letter-spacing:0.1em;margin-bottom:28px;text-shadow:0 0 40px rgba(212,167,84,0.15);">Ziyarat-e-Delhi</h1>
+    <div style="width:60px;height:1px;background:linear-gradient(to right,transparent,#d4a754,transparent);margin:0 auto 28px;"></div>
+    <div style="font-family:'Times New Roman',serif;font-size:12px;letter-spacing:0.3em;text-transform:uppercase;color:#d4a754;border:1px solid rgba(212,167,84,0.45);padding:12px 38px;display:inline-block;animation:enterPulse 2s ease-in-out infinite;">Enter</div>
+    <p style="font-family:'Times New Roman',serif;font-size:11px;color:rgba(212,167,84,0.28);margin-top:18px;letter-spacing:0.08em;font-style:italic;">Click anywhere to begin</p>
+  </div>
+</div>
+<style>
+@keyframes enterPulse { 0%,100% { box-shadow:0 0 0 0 rgba(212,167,84,0.3); } 50% { box-shadow:0 0 0 10px rgba(212,167,84,0); } }
+</style>
+
+
+<!-- PISHTAQ INTRO -->
+<div id="pishtaq-intro">
+  <div class="intro-bg">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+      <defs>
+        <pattern id="bg-pd" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+          <rect width="56" height="56" fill="#f0ece4"/>
+          <path d="M0,28 Q14,22 28,28 Q42,34 56,28" fill="none" stroke="rgba(180,160,140,0.15)" stroke-width="0.6"/>
+          <path d="M28,0 Q34,14 28,28 Q22,42 28,56" fill="none" stroke="rgba(180,160,140,0.15)" stroke-width="0.6"/>
+          <path d="M0,28 Q14,14 28,28 Q42,42 56,28" fill="none" stroke="#1a1208" stroke-width="1"/>
+          <path d="M28,0 Q42,14 28,28 Q14,42 28,56" fill="none" stroke="#1a1208" stroke-width="1"/>
+          <path d="M0,0 Q7,7 0,14" fill="none" stroke="#1a1208" stroke-width="0.7"/>
+          <path d="M56,0 Q49,7 56,14" fill="none" stroke="#1a1208" stroke-width="0.7"/>
+          <path d="M0,56 Q7,49 0,42" fill="none" stroke="#1a1208" stroke-width="0.7"/>
+          <path d="M56,56 Q49,49 56,42" fill="none" stroke="#1a1208" stroke-width="0.7"/>
+          <path d="M24,24 Q20,18 16,21 Q20,25 24,24Z" fill="#2d5a27"/>
+          <path d="M32,24 Q36,18 40,21 Q36,25 32,24Z" fill="#2d5a27"/>
+          <path d="M24,32 Q20,38 16,35 Q20,31 24,32Z" fill="#2d5a27"/>
+          <path d="M32,32 Q36,38 40,35 Q36,31 32,32Z" fill="#2d5a27"/>
+          <path d="M25,22 Q28,14 31,22 Q29,26 28,25 Q27,26 25,22Z" fill="#c0392b"/>
+          <path d="M26.5,22 Q28,16 29.5,22" fill="#8b0000" stroke="none"/>
+          <path d="M26,25 Q24,30 28,31 Q32,30 30,25Z" fill="#2d5a27"/>
+          <circle cx="28" cy="28" r="1.8" fill="#f5f0e8" stroke="#1a1208" stroke-width="0.4"/>
+          <circle cx="0"  cy="0"  r="2" fill="#f5f0e8" stroke="#1a1208" stroke-width="0.5"/>
+          <circle cx="56" cy="0"  r="2" fill="#f5f0e8" stroke="#1a1208" stroke-width="0.5"/>
+          <circle cx="0"  cy="56" r="2" fill="#f5f0e8" stroke="#1a1208" stroke-width="0.5"/>
+          <circle cx="56" cy="56" r="2" fill="#f5f0e8" stroke="#1a1208" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#bg-pd)"/>
+    </svg>
+  </div>
+  <div style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;width:100%;">
+    <svg id="pishtaq-svg" viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ig" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a754" stop-opacity="0.95"/><stop offset="100%" stop-color="#7a4a08" stop-opacity="0.8"/></linearGradient>
+        <linearGradient id="ig2" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#d4a754" stop-opacity="0.6"/><stop offset="100%" stop-color="#d4a754" stop-opacity="0.1"/></linearGradient>
+        <pattern id="ip" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+          <rect width="28" height="28" fill="#f0ece4"/>
+          <path d="M0,14 Q7,7 14,14 Q21,21 28,14" fill="none" stroke="#1a1208" stroke-width="0.7"/>
+          <path d="M14,0 Q21,7 14,14 Q7,21 14,28" fill="none" stroke="#1a1208" stroke-width="0.7"/>
+          <path d="M12,12 Q10,8 8,10 Q10,13 12,12Z" fill="#2d5a27"/>
+          <path d="M16,12 Q18,8 20,10 Q18,13 16,12Z" fill="#2d5a27"/>
+          <path d="M12,16 Q10,20 8,18 Q10,15 12,16Z" fill="#2d5a27"/>
+          <path d="M16,16 Q18,20 20,18 Q18,15 16,16Z" fill="#2d5a27"/>
+          <ellipse cx="14" cy="11" rx="1.8" ry="2.5" fill="#c0392b"/>
+          <path d="M12.5,11 Q14,7.5 15.5,11" fill="#8b0000" stroke="none"/>
+          <circle cx="14" cy="14" r="1" fill="#f5f0e8" stroke="#1a1208" stroke-width="0.3"/>
+        </pattern>
+        <clipPath id="arch-clip"><path d="M68,415 L68,240 C68,140 100,88 160,80 C220,88 252,140 252,240 L252,415 Z"/></clipPath>
+      </defs>
+      <line class="p-ground" x1="0" y1="415" x2="320" y2="415" stroke="url(#ig2)" stroke-width="2"/>
+      <line class="p-ground" x1="30" y1="418" x2="290" y2="418" stroke="rgba(212,167,84,0.3)" stroke-width="1"/>
+      <rect class="p-jamb-l" x="18" y="180" width="22" height="235" rx="2" fill="url(#ip)" stroke="url(#ig)" stroke-width="1.2"/>
+      <rect class="p-jamb-r" x="280" y="180" width="22" height="235" rx="2" fill="url(#ip)" stroke="url(#ig)" stroke-width="1.2"/>
+      <rect class="p-jamb-l" x="14" y="175" width="30" height="10" rx="1" fill="rgba(212,167,84,0.3)" stroke="url(#ig)" stroke-width="1"/>
+      <rect class="p-jamb-r" x="276" y="175" width="30" height="10" rx="1" fill="rgba(212,167,84,0.3)" stroke="url(#ig)" stroke-width="1"/>
+      <rect class="p-frame-l" x="2" y="10" width="38" height="410" rx="2" fill="url(#ip)" stroke="url(#ig)" stroke-width="1.5"/>
+      <rect class="p-frame-r" x="280" y="10" width="38" height="410" rx="2" fill="url(#ip)" stroke="url(#ig)" stroke-width="1.5"/>
+      <rect class="p-frame-top" x="2" y="10" width="316" height="36" rx="2" fill="url(#ip)" stroke="url(#ig)" stroke-width="1.5"/>
+      <rect class="p-face" x="40" y="46" width="240" height="369" fill="url(#ip)"/>
+      <rect class="p-inner-border" x="48" y="54" width="224" height="355" fill="none" stroke="rgba(212,167,84,0.4)" stroke-width="1.2" rx="1"/>
+      <rect class="p-inner-border" x="54" y="60" width="212" height="343" fill="none" stroke="rgba(212,167,84,0.2)" stroke-width="0.7" rx="1"/>
+      <rect class="p-band" x="48" y="54" width="224" height="20" fill="rgba(0,0,0,0.45)"/>
+      <g class="p-band">
+        <rect x="58" y="59" width="12" height="8" rx="1" fill="rgba(212,167,84,0.5)"/>
+        <rect x="76" y="59" width="8"  height="8" rx="1" fill="rgba(212,167,84,0.35)"/>
+        <rect x="90" y="59" width="14" height="8" rx="1" fill="rgba(212,167,84,0.5)"/>
+        <rect x="110" y="59" width="6" height="8" rx="1" fill="rgba(212,167,84,0.35)"/>
+        <rect x="122" y="59" width="18" height="8" rx="1" fill="rgba(212,167,84,0.5)"/>
+        <rect x="146" y="59" width="6" height="8" rx="1" fill="rgba(212,167,84,0.35)"/>
+        <rect x="158" y="59" width="14" height="8" rx="1" fill="rgba(212,167,84,0.5)"/>
+        <rect x="178" y="59" width="8" height="8" rx="1" fill="rgba(212,167,84,0.35)"/>
+        <rect x="192" y="59" width="12" height="8" rx="1" fill="rgba(212,167,84,0.5)"/>
+        <rect x="210" y="59" width="6" height="8" rx="1" fill="rgba(212,167,84,0.35)"/>
+        <rect x="222" y="59" width="12" height="8" rx="1" fill="rgba(212,167,84,0.5)"/>
+        <rect x="240" y="59" width="8" height="8" rx="1" fill="rgba(212,167,84,0.35)"/>
+      </g>
+      <path class="p-arch-fill" d="M68,415 L68,240 C68,140 100,88 160,80 C220,88 252,140 252,240 L252,415 Z" fill="#05030200"/>
+      <path class="p-arch-fill" d="M68,415 L68,240 C68,140 100,88 160,80 C220,88 252,140 252,240 L252,415 Z" fill="#060402"/>
+      <path class="p-arch-border" d="M68,415 L68,240 C68,140 100,88 160,80 C220,88 252,140 252,240 L252,415" fill="none" stroke="url(#ig)" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="p-arch-inner" d="M82,415 L82,246 C82,152 108,104 160,97 C212,104 238,152 238,246 L238,415" fill="none" stroke="rgba(212,167,84,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+      <path class="p-arch-inner" d="M92,415 L92,250 C92,160 114,116 160,110 C206,116 228,160 228,250 L228,415" fill="none" stroke="rgba(212,167,84,0.18)" stroke-width="0.8" stroke-linecap="round"/>
+      <g class="p-muq1">
+        <polyline points="96,150 108,136 120,124 132,116 144,110 160,106 176,110 188,116 200,124 212,136 224,150" fill="none" stroke="rgba(212,167,84,0.65)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M108,136 L112,128 L120,124 L116,132 Z" fill="rgba(212,167,84,0.12)" stroke="rgba(212,167,84,0.4)" stroke-width="0.7"/>
+        <path d="M200,124 L204,132 L212,136 L208,128 Z" fill="rgba(212,167,84,0.12)" stroke="rgba(212,167,84,0.4)" stroke-width="0.7"/>
+        <path d="M120,124 L124,114 L136,110 L132,120 Z" fill="rgba(212,167,84,0.1)" stroke="rgba(212,167,84,0.35)" stroke-width="0.7"/>
+        <path d="M184,110 L188,120 L200,124 L196,114 Z" fill="rgba(212,167,84,0.1)" stroke="rgba(212,167,84,0.35)" stroke-width="0.7"/>
+      </g>
+      <g class="p-muq2">
+        <polyline points="110,156 120,144 132,134 144,126 160,120 176,126 188,134 200,144 210,156" fill="none" stroke="rgba(212,167,84,0.4)" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M120,144 L126,136 L132,134 L128,142 Z" fill="rgba(212,167,84,0.08)" stroke="rgba(212,167,84,0.3)" stroke-width="0.6"/>
+        <path d="M188,134 L192,142 L200,144 L194,136 Z" fill="rgba(212,167,84,0.08)" stroke="rgba(212,167,84,0.3)" stroke-width="0.6"/>
+      </g>
+      <g class="p-rose">
+        <circle cx="56" cy="120" r="14" fill="none" stroke="rgba(212,167,84,0.45)" stroke-width="1"/>
+        <circle cx="56" cy="120" r="9" fill="none" stroke="rgba(212,167,84,0.3)" stroke-width="0.8"/>
+        <circle cx="56" cy="120" r="4" fill="rgba(212,167,84,0.15)" stroke="rgba(212,167,84,0.5)" stroke-width="0.8"/>
+        <circle cx="56" cy="120" r="1.5" fill="#c8973a" opacity="0.7"/>
+        <line x1="56" y1="106" x2="56" y2="134" stroke="rgba(212,167,84,0.25)" stroke-width="0.6"/>
+        <line x1="42" y1="120" x2="70" y2="120" stroke="rgba(212,167,84,0.25)" stroke-width="0.6"/>
+        <line x1="46" y1="110" x2="66" y2="130" stroke="rgba(212,167,84,0.2)" stroke-width="0.6"/>
+        <line x1="66" y1="110" x2="46" y2="130" stroke="rgba(212,167,84,0.2)" stroke-width="0.6"/>
+      </g>
+      <g class="p-rose">
+        <circle cx="264" cy="120" r="14" fill="none" stroke="rgba(212,167,84,0.45)" stroke-width="1"/>
+        <circle cx="264" cy="120" r="9" fill="none" stroke="rgba(212,167,84,0.3)" stroke-width="0.8"/>
+        <circle cx="264" cy="120" r="4" fill="rgba(212,167,84,0.15)" stroke="rgba(212,167,84,0.5)" stroke-width="0.8"/>
+        <circle cx="264" cy="120" r="1.5" fill="#c8973a" opacity="0.7"/>
+        <line x1="264" y1="106" x2="264" y2="134" stroke="rgba(212,167,84,0.25)" stroke-width="0.6"/>
+        <line x1="250" y1="120" x2="278" y2="120" stroke="rgba(212,167,84,0.25)" stroke-width="0.6"/>
+        <line x1="254" y1="110" x2="274" y2="130" stroke="rgba(212,167,84,0.2)" stroke-width="0.6"/>
+        <line x1="274" y1="110" x2="254" y2="130" stroke="rgba(212,167,84,0.2)" stroke-width="0.6"/>
+      </g>
+      <g class="p-rose"><circle cx="56" cy="220" r="10" fill="none" stroke="rgba(212,167,84,0.3)" stroke-width="0.8"/><circle cx="56" cy="220" r="1.2" fill="#8a6020" opacity="0.5"/></g>
+      <g class="p-rose"><circle cx="264" cy="220" r="10" fill="none" stroke="rgba(212,167,84,0.3)" stroke-width="0.8"/><circle cx="264" cy="220" r="1.2" fill="#8a6020" opacity="0.5"/></g>
+      <g class="p-keystone">
+        <ellipse cx="160" cy="84" rx="18" ry="12" fill="#100c06" stroke="url(#ig)" stroke-width="1.5"/>
+        <ellipse cx="160" cy="84" rx="12" ry="8" fill="none" stroke="rgba(212,167,84,0.4)" stroke-width="0.8"/>
+        <circle cx="160" cy="84" r="5" fill="rgba(212,167,84,0.2)" stroke="#c8973a" stroke-width="1"/>
+        <circle cx="160" cy="84" r="2.5" fill="#d4a754" opacity="0.9"/>
+        <line x1="160" y1="72" x2="160" y2="78" stroke="#c8973a" stroke-width="0.8" opacity="0.6"/>
+        <line x1="160" y1="90" x2="160" y2="96" stroke="#c8973a" stroke-width="0.8" opacity="0.6"/>
+        <line x1="142" y1="84" x2="148" y2="84" stroke="#c8973a" stroke-width="0.8" opacity="0.6"/>
+        <line x1="172" y1="84" x2="178" y2="84" stroke="#c8973a" stroke-width="0.8" opacity="0.6"/>
+      </g>
+    </svg>
+    <div id="arch-video-wrap">
+      <video id="arch-video" src="static/videos/intro.mp4" playsinline preload="auto"></video>
+    </div>
+  </div>
+</div>
+
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="hamburger" onclick="toggleSidebar()">☰</div>
+    <img src="static/images/CICLOGO.png" style="height:74px;flex-shrink:0;">
+  </div>
+  <div class="pishtaq-fill">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" preserveAspectRatio="xMinYMid meet" style="width:100%;height:90px;display:block;">
+      <defs>
+        <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a754" stop-opacity="0.9"/><stop offset="100%" stop-color="#6b3f08" stop-opacity="0.7"/></linearGradient>
+        <pattern id="pt" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <rect width="20" height="20" fill="#e8e0d0"/>
+          <path d="M0,10 Q5,4 10,10 Q15,16 20,10" fill="none" stroke="#1a1208" stroke-width="0.5"/>
+          <path d="M10,0 Q16,5 10,10 Q4,15 10,20" fill="none" stroke="#1a1208" stroke-width="0.5"/>
+          <path d="M8,8 Q6,5 4,7 Q6,9 8,8Z" fill="#2d5a27" opacity="0.9"/>
+          <path d="M12,8 Q14,5 16,7 Q14,9 12,8Z" fill="#2d5a27" opacity="0.9"/>
+          <path d="M8,12 Q6,15 4,13 Q6,11 8,12Z" fill="#2d5a27" opacity="0.9"/>
+          <path d="M12,12 Q14,15 16,13 Q14,11 12,12Z" fill="#2d5a27" opacity="0.9"/>
+          <ellipse cx="10" cy="7.5" rx="1.4" ry="2" fill="#c0392b"/>
+          <path d="M9,7.5 Q10,5 11,7.5" fill="#8b0000"/>
+          <circle cx="10" cy="10" r="0.9" fill="#e8e0d0" stroke="#1a1208" stroke-width="0.3"/>
+        </pattern>
+        <symbol id="arch" viewBox="0 0 80 90" overflow="visible">
+          <rect x="2" y="1" width="76" height="88" fill="url(#pt)" rx="1"/>
+          <rect x="2" y="1" width="76" height="88" fill="none" stroke="url(#pg)" stroke-width="1.4" rx="1"/>
+          <rect x="7" y="6" width="66" height="78" fill="none" stroke="rgba(212,167,84,0.3)" stroke-width="0.6" rx="0.5"/>
+          <rect x="7" y="6" width="66" height="7" fill="rgba(0,0,0,0.35)"/>
+          <path d="M14,89 L14,50 C14,24 26,12 40,10 C54,12 66,24 66,50 L66,89 Z" fill="#080604"/>
+          <path d="M14,89 L14,50 C14,24 26,12 40,10 C54,12 66,24 66,50 L66,89" fill="none" stroke="url(#pg)" stroke-width="1.4"/>
+          <path d="M19,89 L19,53 C19,30 28,19 40,17 C52,19 61,30 61,53 L61,89" fill="none" stroke="rgba(212,167,84,0.28)" stroke-width="0.7"/>
+          <polygon points="28,30 33,23 40,19 47,23 52,30 47,27 40,23 33,27" fill="none" stroke="rgba(212,167,84,0.55)" stroke-width="0.7"/>
+          <ellipse cx="40" cy="11" rx="6" ry="4" fill="#100c06" stroke="#c8973a" stroke-width="0.8"/>
+          <circle cx="40" cy="11" r="2.2" fill="#c8973a" opacity="0.85"/>
+          <circle cx="10" cy="24" r="4.5" fill="none" stroke="rgba(180,120,30,0.45)" stroke-width="0.6"/>
+          <circle cx="10" cy="24" r="0.7" fill="#9a6f22" opacity="0.55"/>
+          <circle cx="70" cy="24" r="4.5" fill="none" stroke="rgba(180,120,30,0.45)" stroke-width="0.6"/>
+          <circle cx="70" cy="24" r="0.7" fill="#9a6f22" opacity="0.55"/>
+          <rect x="14" y="76" width="4" height="13" fill="rgba(212,167,84,0.1)" stroke="rgba(212,167,84,0.3)" stroke-width="0.5"/>
+          <rect x="62" y="76" width="4" height="13" fill="rgba(212,167,84,0.1)" stroke="rgba(212,167,84,0.3)" stroke-width="0.5"/>
+          <line x1="2" y1="87" x2="78" y2="87" stroke="rgba(212,167,84,0.45)" stroke-width="1"/>
+        </symbol>
+        <symbol id="sufi1" viewBox="0 0 80 90"><path d="M38,34 Q40,26 42,34" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.4" stroke-linecap="round"/><circle cx="40" cy="38" r="3.5" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.3"/><line x1="40" y1="41" x2="40" y2="54" stroke="rgba(255,255,255,0.8)" stroke-width="1.4" stroke-linecap="round"/><path d="M40,47 Q32,44 25,41" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/><path d="M40,47 Q48,44 55,41" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/><path d="M37,54 Q28,64 22,76" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round"/><path d="M40,54 Q40,66 40,78" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/><path d="M43,54 Q52,64 58,76" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round"/><path d="M22,76 Q40,82 58,76" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.3" stroke-linecap="round"/><path d="M20,70 Q17,63 20,56" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1" stroke-linecap="round"/></symbol>
+        <symbol id="sufi2" viewBox="0 0 80 90"><path d="M37,34 Q40,25 43,35" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.4" stroke-linecap="round" transform="rotate(10 40 34)"/><circle cx="41" cy="38" r="3.5" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.3"/><line x1="41" y1="41" x2="40" y2="54" stroke="rgba(255,255,255,0.8)" stroke-width="1.4" stroke-linecap="round"/><path d="M41,46 Q47,40 52,33" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M40,48 Q34,50 28,51" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.4" stroke-linecap="round"/><path d="M37,54 Q27,63 22,75" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round"/><path d="M40,54 Q41,66 42,77" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-linecap="round"/><path d="M43,54 Q53,63 57,74" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/><path d="M22,75 Q40,82 57,74" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.3" stroke-linecap="round"/><path d="M21,70 Q18,63 21,55" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/></symbol>
+        <symbol id="sufi3" viewBox="0 0 80 90"><path d="M38,33 Q40,23 42,33" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.4" stroke-linecap="round"/><circle cx="40" cy="37" r="3.5" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.3"/><line x1="40" y1="40" x2="40" y2="53" stroke="rgba(255,255,255,0.8)" stroke-width="1.4" stroke-linecap="round"/><path d="M40,45 Q33,39 27,33" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M40,45 Q47,39 53,33" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M37,53 Q26,62 20,75" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="1.7" stroke-linecap="round"/><path d="M40,53 Q40,66 40,78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.1" stroke-linecap="round"/><path d="M43,53 Q54,62 60,75" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="1.7" stroke-linecap="round"/><path d="M20,75 Q40,83 60,75" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.3" stroke-linecap="round"/><path d="M34,33 Q40,27 46,33" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round"/></symbol>
+        <symbol id="sufi4" viewBox="0 0 80 90"><path d="M38,34 Q40,26 42,34" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.4" stroke-linecap="round"/><circle cx="40" cy="38" r="3.5" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.3"/><line x1="40" y1="41" x2="40" y2="53" stroke="rgba(255,255,255,0.8)" stroke-width="1.4" stroke-linecap="round"/><path d="M40,46 Q31,45 23,44" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M40,46 Q49,45 57,44" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round"/><path d="M37,53 Q24,61 17,73" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="1.7" stroke-linecap="round"/><path d="M40,53 Q40,66 40,78" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.1" stroke-linecap="round"/><path d="M43,53 Q56,61 63,73" fill="none" stroke="rgba(255,255,255,0.78)" stroke-width="1.7" stroke-linecap="round"/><path d="M17,73 Q40,82 63,73" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1.3" stroke-linecap="round"/><path d="M15,67 Q11,60 15,52" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" stroke-linecap="round"/><path d="M65,67 Q69,60 65,52" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" stroke-linecap="round"/></symbol>
+        <symbol id="sufi5" viewBox="0 0 80 90"><path d="M36,35 Q39,25 41,36" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.4" stroke-linecap="round" transform="rotate(-18 39 35)"/><circle cx="38" cy="39" r="3.5" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" transform="rotate(-15 40 50)"/><path d="M39,42 Q37,48 37,54" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.4" stroke-linecap="round"/><path d="M38,47 Q32,48 26,47" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round"/><path d="M39,49 Q44,49 49,48" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.3" stroke-linecap="round"/><path d="M35,54 Q26,63 23,74" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round"/><path d="M37,54 Q36,66 35,77" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.1" stroke-linecap="round"/><path d="M40,54 Q46,64 50,74" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/><path d="M23,74 Q38,81 50,74" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.3" stroke-linecap="round"/><path d="M21,69 Q18,63 21,56" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.1" stroke-linecap="round"/></symbol>
+      </defs>
+      <use href="#arch" x="0" y="0" width="80" height="90"/><use href="#sufi1" x="0" y="0" width="80" height="90"/>
+      <use href="#arch" x="80" y="0" width="80" height="90"/><use href="#sufi2" x="80" y="0" width="80" height="90"/>
+      <use href="#arch" x="160" y="0" width="80" height="90"/><use href="#sufi3" x="160" y="0" width="80" height="90"/>
+      <use href="#arch" x="240" y="0" width="80" height="90"/><use href="#sufi4" x="240" y="0" width="80" height="90"/>
+      <use href="#arch" x="320" y="0" width="80" height="90"/><use href="#sufi5" x="320" y="0" width="80" height="90"/>
+      <use href="#arch" x="400" y="0" width="80" height="90"/><use href="#sufi1" x="400" y="0" width="80" height="90"/>
+      <use href="#arch" x="480" y="0" width="80" height="90"/><use href="#sufi2" x="480" y="0" width="80" height="90"/>
+      <use href="#arch" x="560" y="0" width="80" height="90"/><use href="#sufi3" x="560" y="0" width="80" height="90"/>
+      <use href="#arch" x="640" y="0" width="80" height="90"/><use href="#sufi4" x="640" y="0" width="80" height="90"/>
+      <use href="#arch" x="720" y="0" width="80" height="90"/><use href="#sufi5" x="720" y="0" width="80" height="90"/>
+      <use href="#arch" x="800" y="0" width="80" height="90"/><use href="#sufi1" x="800" y="0" width="80" height="90"/>
+      <use href="#arch" x="880" y="0" width="80" height="90"/><use href="#sufi2" x="880" y="0" width="80" height="90"/>
+      <use href="#arch" x="960" y="0" width="80" height="90"/><use href="#sufi3" x="960" y="0" width="80" height="90"/>
+      <use href="#arch" x="1040" y="0" width="80" height="90"/><use href="#sufi4" x="1040" y="0" width="80" height="90"/>
+      <use href="#arch" x="1120" y="0" width="80" height="90"/><use href="#sufi5" x="1120" y="0" width="80" height="90"/>
+    </svg>
+  </div>
+</div>
+
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+  <a href="/map">Enter Map</a>
+  <a href="/chat">AI Assistant</a>
+  <a href="/monuments">Monuments Database</a>
+</div>
+
+
+<section id="home" class="hero">
+  <img src="static/images/shahalamtomb.jpeg" class="slide active">
+  <img src="static/images/imamzamintomb.jpg" class="slide">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1 style="font-family:'Times New Roman',Times,serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;letter-spacing:0.08em;line-height:1.1;color:#fff;text-shadow:0 4px 32px rgba(0,0,0,0.8);margin-bottom:20px;opacity:0;animation:fadeInUp 1s ease 0.3s forwards;">Ziyarat-e-Delhi</h1>
+    <div class="ornament" style="margin-bottom:18px;opacity:0;animation:fadeInUp 0.8s ease 0.7s forwards;">— &nbsp; ✦ &nbsp; —</div>
+    <p style="font-family:'Times New Roman',Times,serif;font-size:clamp(1rem,2vw,1.2rem);color:#c8bfb0;max-width:540px;line-height:1.8;font-style:italic;opacity:0;animation:fadeInUp 0.8s ease 1s forwards;">An interactive archive of Delhi's mausoleum history, architecture, scripts and oral traditions across centuries.</p>
+  </div>
+</section>
+
+<section id="about" class="min-h-[40vh] flex items-center justify-center text-center px-6 py-20">
+  <div>
+    <p style="font-family:'Times New Roman',serif;font-size:11px;letter-spacing:0.3em;color:rgba(212,167,84,0.6);text-transform:uppercase;margin-bottom:12px;">About the Project</p>
+    <h1 style="font-family:'Times New Roman',Times,serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:#e8dcc8;letter-spacing:0.06em;display:inline-block;">About Delhi's Mausoleum Project</h1>
+    <div class="gold-rule"></div>
+    <p style="font-family:'Times New Roman',serif;color:#9a9080;max-width:600px;margin:0 auto;font-size:1.1rem;line-height:1.9;font-style:italic;">A digital humanities initiative documenting Delhi's inscriptions, monuments, and scripts through interactive mapping and archival research.</p>
+  </div>
+</section>
+
+<section class="flex justify-center px-6 py-10">
+  <div class="card max-w-3xl w-full p-8">
+    <p style="font-family:'Times New Roman',serif;font-size:10px;letter-spacing:0.28em;color:rgba(212,167,84,0.5);text-transform:uppercase;margin-bottom:10px;">Disclaimer</p>
+    <h2 style="font-family:'Times New Roman',serif;font-size:1.6rem;font-weight:400;color:#e0d4c0;margin-bottom:16px;letter-spacing:0.04em;">Project Disclaimer</h2>
+    <div class="gold-rule" style="margin:0 0 16px;width:40px;"></div>
+    <p style="font-family:'Times New Roman',serif;color:#9a9080;line-height:1.9;font-size:1rem;">The project was done in the Cluster Innovation Centre by students of Semester 4th under the supervision of Professor Dr. Ashu Mishra. This initiative combines historical research and digital technologies to map and create an accessible archive of Delhi's Mausoleum.</p>
+  </div>
+</section>
+
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <p style="font-family:'Times New Roman',serif;font-size:10px;letter-spacing:0.3em;color:rgba(212,167,84,0.5);text-transform:uppercase;text-align:center;margin-bottom:10px;">The Team</p>
+    <h2 style="font-family:'Times New Roman',Times,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:#e8dcc8;letter-spacing:0.06em;display:block;text-align:center;">Project Contributors</h2>
+    <div class="gold-rule"></div>
+    <div class="relative mt-12">
+      <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(212,167,84,0.3),rgba(212,167,84,0.3),transparent);transform:translateX(-50%);"></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12 text-right"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Dr. Ashu Mishra</h3><p style="font-family:'Times New Roman',serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(212,167,84,0.6);margin-bottom:8px;">Project Supervisor</p><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;line-height:1.7;">Provided academic supervision and expertise in historical research and monuments selection.</p></div></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12"></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Swapnil Sujal</h3><p style="font-family:'Times New Roman',serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(212,167,84,0.6);margin-bottom:8px;">Project Developer</p><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;line-height:1.7;">Designed and developed the Ziyarat-e-Delhi platform, including map, backend, and interface.</p></div></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12 text-right"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Samarth Malviya</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12"></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Divay Singh</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12 text-right"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Kartikey</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12"></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Amal AM</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12 text-right"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Muskan</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12"></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Krishna Mishra</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12 text-right"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Tasneem Fatma</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"></div></div>
+      <div class="mb-14 flex justify-between items-center"><div class="w-5/12"></div><div class="w-2/12 flex justify-center"><div class="timeline-dot"></div></div><div class="w-5/12"><div class="card p-6"><h3 style="font-family:'Times New Roman',serif;font-size:1.15rem;font-weight:700;color:#e8dcc8;margin-bottom:4px;">Aryan Yadav</h3><p style="font-family:'Times New Roman',serif;color:#8a8070;font-size:0.95rem;margin-top:8px;">Researcher · Field Work</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="flex justify-center px-6 py-6">
+  <div class="card max-w-3xl w-full p-8">
+    <p style="font-family:'Times New Roman',serif;font-size:10px;letter-spacing:0.28em;color:rgba(212,167,84,0.5);text-transform:uppercase;margin-bottom:10px;">Institution</p>
+    <h2 style="font-family:'Times New Roman',serif;font-size:1.6rem;font-weight:400;color:#e0d4c0;margin-bottom:12px;letter-spacing:0.04em;">About Cluster Innovation Centre</h2>
+    <div class="gold-rule" style="margin:0 0 16px;width:40px;"></div>
+    <p style="font-family:'Times New Roman',serif;color:#9a9080;line-height:1.9;font-size:1rem;">The Cluster Innovation Center, or CIC for short, was created to look for and extract innovations from slum, industrial, village, and educational clusters. It is an attempt to use the enthusiasm and commitment of intelligent young people to address some of India's and civil society's most pressing issues.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="gold-rule" style="margin:0 auto 24px;"></div>
+  <div style="font-family:'Times New Roman',serif;font-size:11px;letter-spacing:0.25em;color:rgba(212,167,84,0.4);text-transform:uppercase;margin-bottom:10px;">Cluster Innovation Center &nbsp;·&nbsp; Ziyarat-e-Delhi</div>
+  <div style="font-family:'Times New Roman',serif;font-size:0.85rem;color:#4a4038;line-height:1.8;">A Digital Humanities Initiative &nbsp;·&nbsp; Cluster Innovation Centre, University of Delhi<br>Semester IV · Under the supervision of Dr. Ashu Mishra</div>
+  <div class="gold-rule" style="margin:20px auto 0;"></div>
+</footer>
+
+
+<script>
+
+const introAudio = new Audio("static/audios/intro.mp3");
+introAudio.volume = 0.85;
+
+function fadeOutAudio(audio, duration) {
+  const step = 50;
+  const decrement = audio.volume / (duration / step);
+  const fade = setInterval(() => {
+    if (audio.volume > decrement) {
+      audio.volume = Math.max(0, audio.volume - decrement);
+    } else {
+      audio.volume = 0;
+      audio.pause();
+      clearInterval(fade);
+    }
+  }, step);
+}
+
+function startExperience() {
+  const es = document.getElementById("enter-screen");
+  es.style.transition = "opacity 0.4s ease";
+  es.style.opacity = "0";
+  setTimeout(() => es.remove(), 400);
+
+  introAudio.play().catch(() => {});
+
+  const intro = document.getElementById("pishtaq-intro");
+  intro.style.display = "flex";
+
+  const bgEl = intro.querySelector(".intro-bg");
+  bgEl.style.animation = "bgFade 0.4s ease forwards, bgGreyscale 1.2s ease 5.0s forwards";
+
+  const st = document.createElement("style");
+  st.textContent = `
+    .p-ground       { animation: drawIn 0.5s ease 0.2s forwards; }
+    .p-jamb-l       { animation: growUp 0.55s cubic-bezier(0.4,0,0.2,1) 0.6s forwards; }
+    .p-jamb-r       { animation: growUp 0.55s cubic-bezier(0.4,0,0.2,1) 0.75s forwards; }
+    .p-frame-l      { animation: growUp 0.6s cubic-bezier(0.4,0,0.2,1) 0.95s forwards; }
+    .p-frame-r      { animation: growUp 0.6s cubic-bezier(0.4,0,0.2,1) 1.05s forwards; }
+    .p-frame-top    { animation: growAcross 0.5s ease 1.45s forwards; }
+    .p-face         { animation: drawIn 0.6s ease 1.75s forwards; }
+    .p-inner-border { animation: drawIn 0.5s ease 2.1s forwards; }
+    .p-band         { animation: drawIn 0.4s ease 2.45s forwards; }
+    .p-arch-fill    { animation: growUp 0.65s cubic-bezier(0.4,0,0.2,1) 2.7s forwards; }
+    .p-arch-border  { animation: drawStroke 0.7s ease 2.85s forwards; }
+    .p-arch-inner   { animation: drawStroke 0.55s ease 3.3s forwards; }
+    .p-muq1         { animation: drawIn 0.4s ease 3.65s forwards; }
+    .p-muq2         { animation: drawIn 0.4s ease 3.85s forwards; }
+    .p-rose         { animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1) 4.05s forwards; }
+    .p-rose:nth-child(2) { animation-delay: 4.2s; }
+    .p-rose:nth-child(3) { animation-delay: 4.28s; }
+    .p-rose:nth-child(4) { animation-delay: 4.36s; }
+    .p-keystone     { animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) 4.5s forwards; }
+    .p-title        { animation: drawIn 0.5s ease 4.7s forwards; }
+    .p-subtitle     { animation: drawIn 0.5s ease 4.85s forwards; }
+  `;
+  document.head.appendChild(st);
+
+  const svg  = document.getElementById("pishtaq-svg");
+  const wrap = document.getElementById("arch-video-wrap");
+  const vid  = document.getElementById("arch-video");
+
+  setTimeout(() => {
+    svg.classList.add("expanding");
+
+    setTimeout(() => {
+      const r = svg.getBoundingClientRect();
+      const sx = r.width / 320, sy = r.height / 420;
+      wrap.style.left   = (r.left + 68 * sx) + "px";
+      wrap.style.top    = (r.top  + 80 * sy) + "px";
+      wrap.style.width  = ((252 - 68) * sx)  + "px";
+      wrap.style.height = ((415 - 80) * sy)  + "px";
+      wrap.classList.add("show");
+      vid.play().catch(() => {});
+    }, 850);
+
+    setTimeout(() => {
+      fadeOutAudio(introAudio, 600);
+      intro.classList.add("done");
+      setTimeout(() => intro.remove(), 700);
+    }, 3000);
+
+  }, 5000);
+}
+
+/* Slideshow */
+let slides = document.querySelectorAll(".slide"), idx = 0;
+setInterval(() => {
+  slides[idx].classList.remove("active");
+  idx = (idx + 1) % slides.length;
+  slides[idx].classList.add("active");
+}, 4000);
+
+/* Sidebar */
+function toggleSidebar() {
+  const sb = document.getElementById("sidebar");
+  sb.style.left = sb.style.left === "0px" ? "-260px" : "0px";
+}
+document.addEventListener("click", (e) => {
+  const sb = document.getElementById("sidebar");
+  if (sb.style.left === "0px" && !sb.contains(e.target) && !e.target.closest(".hamburger"))
+    sb.style.left = "-260px";
+});
+
+</script>
+</body>
+</html>
